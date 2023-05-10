@@ -1,0 +1,16 @@
+import signal
+import time
+
+# Define a signal handler function
+def signal_handler(signal_num, frame):
+    print(f"Received signal: {signal_num}")
+    # Add your custom action here
+
+# Register the signal handler for specific signals
+signal.signal(signal.SIGINT, signal_handler)  # Ctrl+C
+signal.signal(signal.SIGTERM, signal_handler)  # Termination signal
+
+# Keep the program running
+while True:
+    print("Program is running...")
+    time.sleep(1)
